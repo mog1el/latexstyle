@@ -1,0 +1,1 @@
+This is currently an under-construction repository, which will be home to my latex configuration.
