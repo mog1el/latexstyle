@@ -58,13 +58,21 @@
 \newtheorem{lemma}[theorem]{Lemma}
 
 % Header and footer handling
-\makeat
+\makeatletter
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \makeatletter
 \fancyhead[L]{\@author}
 \fancyhead[R]{\leftmark}
 \fancyfoot[C]{\thepage}
+
+% Handling lecture notes data
+\newcommand{\instructor}[1]{\def\@instructor{#1}}
+\newcommand{\term}[1]{\def\@term{#1}}
+\newcommand{\modulecode}[1]{\def\@modulecode{#1}}
+\instructor{}
+\term{}
+\modulecode{}
 
 % Different maketitle for different types
 \DeclareOption{handout}{\renewcommand{\maketitle}{
@@ -73,11 +81,48 @@
 \begin{center}
 	\vspace*{0.5cm}
 
+	\huge
+	\textbf{\@title}
+
+	\vspace*{0.5cm}
+	\Large
+	\@author
+
+	\vspace*{0.5cm}
+\end{center}
+\tableofcontents
+}}
+\DeclareOption{lecturenotes}{\renewcommand{\maketitle}{
+\thispagestyle{empty}
+\addtocounter{page}{-1}
+\fancyfoot[L]{\@modulecode$~\cdot~$\@term}
+\fancyfoot[R]{\@instructor}
+\begin{center}
 	\Huge
 	\textbf{\@title}
 
 	\vspace*{0.5cm}
-	\LARGE
+	\Large
+	\@author
+
+	\vspace*{0.5cm}
+	\@instructor $~\cdot~$ \@term
+
+\end{center}
+\tableofcontents
+}}
+\DeclareOption{problemset}{\renewcommand{\maketitle}{
+\thispagestyle{empty}
+\fancyhead[R]{Problems in \@title$~\cdot~$\leftmark}
+\addtocounter{page}{-1}
+\begin{center}
+	\vspace*{0.5cm}
+
+	\huge
+	\textbf{Problems in \@title}
+
+	\vspace*{0.5cm}
+	\Large
 	\@author
 
 	\vspace*{0.5cm}
