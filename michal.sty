@@ -56,14 +56,17 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{protocol}[theorem]{Protocol}
 
 % Header and footer handling
 \makeatletter
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \makeatletter
-\fancyhead[L]{\@author}
-\fancyhead[R]{\leftmark}
+\fancyhead[L]{\footnotesize\@author}
+\fancyhead[R]{\footnotesize\leftmark}
 \fancyfoot[C]{\thepage}
 
 % Handling lecture notes data
@@ -95,8 +98,8 @@
 \DeclareOption{lecturenotes}{\renewcommand{\maketitle}{
 \thispagestyle{empty}
 \addtocounter{page}{-1}
-\fancyfoot[L]{\@modulecode$~\cdot~$\@term}
-\fancyfoot[R]{\@instructor}
+\fancyfoot[L]{\footnotesize\@modulecode$~\cdot~$\@term}
+\fancyfoot[R]{\footnotesize\@instructor}
 \begin{center}
 	\Huge
 	\textbf{\@title}
@@ -113,7 +116,7 @@
 }}
 \DeclareOption{problemset}{\renewcommand{\maketitle}{
 \thispagestyle{empty}
-\fancyhead[R]{Problems in \@title$~\cdot~$\leftmark}
+\fancyhead[R]{\footnotesize Problems in \@title$~\cdot~$\leftmark}
 \addtocounter{page}{-1}
 \begin{center}
 	\vspace*{0.5cm}
@@ -128,6 +131,16 @@
 	\vspace*{0.5cm}
 \end{center}
 \tableofcontents
+}}
+\DeclareOption{shortproblemset}{\renewcommand{\maketitle}{
+\thispagestyle{empty}
+\begin{center}
+	\huge
+	\textbf{Problems in /@title}
+
+	\vspace*{0.5cm}
+
+\end{center}
 }}
 \makeatother
 
