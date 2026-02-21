@@ -25,50 +25,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+# Adding different environments
 snippet eq "Equation" i
 \begin{equation}
     $1
 \end{equation}
 $0
-endsnippet
-
-snippet ff "Fraction" i
-\frac{$1}{$2}$0
-endsnippet
-
-snippet int "Integral" i
-\int_{$1}^{$2} $3 dx$0
-endsnippet
-
-snippet sum "Summation" i
-\sum_{${1:i=1}}^{${2:n}} $0
-endsnippet
-
-snippet pder "Partial Derivative" i
-\frac{\pd $1}{\pd $2}$0
-endsnippet
-
-snippet init "Just start" i
-\documentclass{article}
-\usepackage[$1]{michal}
-\title{$2}
-\author{$3}
-
-\begin{document}
-\maketitle
-\end{document}
-endsnippet
-
-snippet grad "grad" i
-\nabla $0
-endsnippet
-
-snippet div "div" i
-\nabla\cdot $0
-endsnippet
-
-snippet curl "curl" i
-\nabla\times $0
 endsnippet
 
 snippet def "Definition" i
@@ -119,3 +81,45 @@ snippet pf "Proof" i
 \end{proof}
 $0
 endsnippet
+
+# Useful Symbols
+snippet ff "Fraction" i
+\frac{$1}{$2}$0
+endsnippet
+
+snippet int "Integral" i
+\int_{$1}^{$2} $3 dx$0
+endsnippet
+
+snippet sum "Summation" i
+\sum_{${1:i=1}}^{${2:n}} $0
+endsnippet
+
+snippet pder "Partial Derivative" i
+\frac{\pd $1}{\pd $2}$0
+endsnippet
+
+snippet grad "grad" i
+\nabla $0
+endsnippet
+
+snippet div "div" i
+\nabla\cdot $0
+endsnippet
+
+snippet curl "curl" i
+\nabla\times $0
+endsnippet
+
+# Others (just making life easier faster)
+snippet init "Just start" i
+\documentclass{article}
+\usepackage[$1]{michal}
+\title{$2}
+\author{$3}
+
+\begin{document}
+\maketitle
+\end{document}
+endsnippet
+
